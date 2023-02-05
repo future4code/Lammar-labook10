@@ -1,4 +1,4 @@
-eveexport enum POST_TYPES {
+export enum POST_TYPES {
     NORMAL = "normal",
     EVENT = "event"
 }
@@ -18,3 +18,4 @@ export interface PostInputDTO {
     type: POST_TYPES,
     authorId: string
 }
+

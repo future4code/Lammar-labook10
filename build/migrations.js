@@ -1,23 +1,25 @@
-import dotenv from 'dotenv'
-import knex from 'knex'
-
-dotenv.config()
-
-export const connection= knex({
-   client: "mysql",
-   connection: {
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASS,
-      database: process.env.DB_NAME,
-      port: 3306,
-      multipleStatements: true
-   }
-})
-
-
-connection
-   .raw(`
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.connection = void 0;
+const dotenv_1 = __importDefault(require("dotenv"));
+const knex_1 = __importDefault(require("knex"));
+dotenv_1.default.config();
+exports.connection = (0, knex_1.default)({
+    client: "mysql",
+    connection: {
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME,
+        port: 3306,
+        multipleStatements: true
+    }
+});
+exports.connection
+    .raw(`
       CREATE TABLE IF NOT EXISTS labook_users(
          id VARCHAR(255) PRIMARY KEY,
          name VARCHAR(255) NOT NULL,
@@ -43,7 +45,7 @@ connection
          FOREIGN KEY (fk_account2) REFERENCES labook_users (id)
       )
    `)
-   .then(() => {
-    console.log(`Tables created successfully!`)
+    .then(() => {
+    console.log(`Tables created successfully!`);
 })
-.catch((error: any) => console.log(error.sqlMessage || error.message))
+    .catch((error) => console.log(error.sqlMessage || error.message));
