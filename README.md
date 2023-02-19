@@ -1,4 +1,4 @@
-# labook-template
+# Cookenu
 
 ## Esta API é um MVP para um sistema de rede social.
 
