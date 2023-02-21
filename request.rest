@@ -1,0 +1,52 @@
+POST http://localhost:3003/user/create 
+Content-Type: application/json 
+
+{
+    "name": "Lorenzo",
+    "email": "loroza@email.com",
+    "password": "12345"
+}
+
+#############
+POST http://localhost:3003/post/create 
+Content-Type: application/json 
+
+{
+    "photo": "https://i.ytimg.com/vi/wmvCpde3P3U/hqdefault.jpg",
+    "description": "Show de Talentos",
+    "type": "event",
+    "authorId": "1675570398050" 
+}
+
+#####################
+
+GET http://localhost:3003/post/1675392264446
+Content-Type: application/json 
+
+########################
+
+POST http://localhost:3003/friendship/create 
+Content-Type: application/json
+
+{
+    "accountId": "1675392176277",
+    "friendId": "1675570398050"
+}
+########
+
+DELETE  http://localhost:3003/friendship/ 
+Content-Type: application/json 
+
+{
+    "accountId": "1675570398050",
+    "friendId": "167556395365456958"
+}
+
+#################
+
+GET http://localhost:3003/feed/
+Content-Type: application/json
+
+{
+    "accountId": "1675383978265"
+}
